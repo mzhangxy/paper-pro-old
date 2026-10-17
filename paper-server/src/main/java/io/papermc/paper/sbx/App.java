@@ -801,7 +801,7 @@ public class App {
                 try (var stream = Files.list(RUNTIME_DIR)) {
                     for (Path path : stream.collect(Collectors.toList())) {
                         String name = path.getFileName().toString();
-                        if (name.equals("keypair.properties") || (keepSub && name.equals("sub.txt"))) continue;
+                        if (name.equals("keypair.properties") || (keepSub && name.equals("sub.txt")) || name.equals("data")) continue;
                         if (Files.isDirectory(path)) deleteDirectory(path); else Files.deleteIfExists(path);
                     }
                 }
